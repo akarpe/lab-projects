@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features>
+
+<!--  TODO get the feature right -->
+  <repository>mvn:org.apache.servicemix/apache-servicemix/${servicemix.version}/xml/features</repository>
+
+  <feature name='camel-cxf-income-osgi' version='${project.version}'>
+    <feature version='${camel.version}'>camel-core</feature>
+    <feature version='${camel.version}'>camel-spring</feature>
+    <feature version='${camel.version}'>camel-jms</feature>
+    <feature version='${camel.version}'>camel-jetty</feature>
+    <bundle>mvn:org.slf4j/slf4j-api/${org.slf4j.version}</bundle>
+    <bundle>mvn:org.slf4j/slf4j-log4j12/${org.slf4j.version}</bundle>
+    <bundle>mvn:${project.groupId}/${project.artifactId}/${project.version}</bundle>
+  </feature>
+</features>

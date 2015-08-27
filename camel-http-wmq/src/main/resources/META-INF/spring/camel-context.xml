@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+  		http://www.springframework.org/schema/beans/spring-beans.xsd
+  	    http://camel.apache.org/schema/spring
+		http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <routeBuilder ref="mqRoute"/>
+    </camelContext>
+
+    <bean id="mqRoute" class="com.fusesource.camel.MqRoute">
+    	<!-- This is the "request" queue -->
+     	<property name="outgoingQueue" value="outgoingPayments"/>
+     	<!-- This is the "response" queue -->    
+        <property name="incomingQueue" value="incomingPayments"/>
+
+    </bean>
+
+  	<bean id="myTransform" class="com.fusesource.camel.MyTransform"/>
+
+    
+	<bean id="wmq" class="org.apache.camel.component.jms.JmsComponent">
+	  <property name="connectionFactory">
+	    <bean class="com.ibm.mq.jms.MQConnectionFactory">
+			<property name="transportType" value="1"/>
+		    <property name="hostName" value="localhost"/> 
+		    <property name="port" value="1414"/> 
+		    <property name="queueManager" value="QM_TEST"/> 
+	    </bean>
+	  </property>
+	</bean>
+
+
+</beans>

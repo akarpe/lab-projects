@@ -1,0 +1,97 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+Apache ServiceMix
+
+
+From: 'an unknown organization'
+  - AOP alliance (http://aopalliance.sourceforge.net) aopalliance:aopalliance:jar:1.0
+    License: Public Domain 
+  - com.ibm.mqjms  com.ibm:com.ibm.mqjms:jar:7.0.1.3
+
+  - com.ibm.mq.jmqi  com.ibm.mq:com.ibm.mq.jmqi:jar:7.0.1.3
+
+  - dhbcore  com.ibm.mq.dhbcore:dhbcore:jar:7.0.1.3
+
+
+From: 'Apache Software Foundation' (http://jakarta.apache.org/)
+  - HttpClient (http://jakarta.apache.org/httpcomponents/httpclient-3.x/) commons-httpclient:commons-httpclient:jar:3.1
+    License: Apache License  (http://www.apache.org/licenses/LICENSE-2.0)
+
+From: 'Apache Software Foundation' (http://www.apache.org)
+  - Servlet 2.4 (http://geronimo.apache.org/specs/geronimo-servlet_2.4_spec) org.apache.geronimo.specs:geronimo-servlet_2.4_spec:jar:1.1.1
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'FuseSource' (http://www.fusesource.org)
+  - Commons Management (http://commonman.fusesource.org) org.fusesource.commonman:commons-management:bundle:1.0
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.html)
+
+From: 'IONA Open Source Community' (http://open.iona.com)
+  - Camel :: HTTP (http://fusesource.com/products/enterprise-camel/camel-parent/camel-http/) org.apache.camel:camel-http:bundle:2.2.0-fuse-02-00
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Camel :: Jetty (http://fusesource.com/products/enterprise-camel/camel-parent/camel-jetty/) org.apache.camel:camel-jetty:bundle:2.2.0-fuse-02-00
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Camel :: JMS (http://fusesource.com/products/enterprise-camel/camel-parent/camel-jms/) org.apache.camel:camel-jms:bundle:2.2.0-fuse-02-00
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Camel :: Spring (http://fusesource.com/products/enterprise-camel/camel-parent/camel-spring/) org.apache.camel:camel-spring:bundle:2.2.0-fuse-02-00
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Mort Bay Consulting' (http://www.mortbay.com)
+  - Jetty Server (http://jetty.mortbay.org/) org.mortbay.jetty:jetty:jar:6.1.22:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Jetty HTTP Client (http://www.eclipse.org/jetty/jetty-parent/project/jetty-client) org.mortbay.jetty:jetty-client:jar:6.1.22
+    License: Apache Software License - Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)    License: Eclipse Public License - Version 1.0  (http://www.eclipse.org/org/documents/epl-v10.php)
+  - Jetty SSLEngine (http://jetty.mortbay.org) org.mortbay.jetty:jetty-sslengine:jar:6.1.22
+    License: Apache License Version 2  (http://www.apache.org/licenses/LICENSE-2.0)
+  - Jetty Utilities (http://jetty.mortbay.org/) org.mortbay.jetty:jetty-util:jar:6.1.22:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Jetty JRE 1.5 Utilities (http://www.eclipse.org/jetty/jetty-parent/project/jetty-util5) org.mortbay.jetty:jetty-util5:jar:6.1.22
+    License: Apache Software License - Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)    License: Eclipse Public License - Version 1.0  (http://www.eclipse.org/org/documents/epl-v10.php)
+  - Servlet Specification API (http://jetty.mortbay.org/servlet-api) org.mortbay.jetty:servlet-api:jar:2.5-20081211
+    License: Apache License Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+
+From: 'QOS.ch' (http://www.qos.ch)
+  - SLF4J API Module (http://www.slf4j.org/slf4j-api) org.slf4j:slf4j-api:jar:1.5.6:compile
+    License: MIT style  (http://www.slf4j.org/license.html)
+  - SLF4J LOG4J-12 Binding (http://www.slf4j.org) org.slf4j:slf4j-log4j12:jar:1.5.6
+
+
+From: 'Spring Framework' (http://www.springframework.org/)
+  - Spring Framework: AOP (http://www.springframework.org) org.springframework:spring-aop:jar:2.5.6.SEC01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Beans (http://www.springframework.org) org.springframework:spring-beans:jar:2.5.6.SEC01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Context (http://www.springframework.org) org.springframework:spring-context:jar:2.5.6.SEC01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Context Support (http://www.springframework.org) org.springframework:spring-context-support:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Core (http://www.springframework.org) org.springframework:spring-core:jar:2.5.6.SEC01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: JMS (http://www.springframework.org) org.springframework:spring-jms:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Transaction (http://www.springframework.org) org.springframework:spring-tx:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'The Apache Software Foundation' (http://www.apache.org/)
+  - Apache Commons Codec  commons-codec:commons-codec:jar:1.2:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Commons Logging (http://commons.apache.org/logging) commons-logging:commons-logging:jar:1.1.1:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Commons Logging Api (http://commons.apache.org/logging) commons-logging:commons-logging-api:jar:1.1:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Commons Pool (http://commons.apache.org/pool) commons-pool:commons-pool:jar:1.3:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Log4j (http://logging.apache.org/log4j/docs/log4j) log4j:log4j:jar:1.2.14:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Camel :: Core (http://fusesource.com/products/enterprise-camel/camel-parent/camel-core/camel-core) org.apache.camel:camel-core:jar:2.2.0-fuse-02-00:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Geronimo Specs :: JMS 1.1 (http://geronimo.apache.org/specs/geronimo-jms_1.1_spec/geronimo-jms_1.1_spec) org.apache.geronimo.specs:geronimo-jms_1.1_spec:jar:1.1.1:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache ServiceMix Bundles: antlr-2.7.7 (http://servicemix.apache.org/bundles-pom/org.apache.servicemix.bundles.antlr/) org.apache.servicemix.bundles:org.apache.servicemix.bundles.antlr:bundle:2.7.7_2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+
+

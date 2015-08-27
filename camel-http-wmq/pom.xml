@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.lab.examples</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.lab.examples</groupId>
+  <artifactId>camel-http-wmq</artifactId>
+  <packaging>bundle</packaging>
+  <version>1.1</version>
+
+  <name>Simple HTTP to Websphere MQ Router Example</name>
+  <url>http://fusesource.com</url>
+
+  <properties>
+      <jboss.fuse.bom.version>6.1.0.redhat-379</jboss.fuse.bom.version>
+      <org.slf4j.version>1.5.6</org.slf4j.version>
+      <java.version>1.6</java.version>
+      <maven-surefire-plugin.version>2.5</maven-surefire-plugin.version>
+  </properties>
+
+  <dependencies>
+    <!-- JBoss Fuse 6.2 BOM -->
+        <dependency>
+            <groupId>org.jboss.fuse.bom</groupId>
+            <artifactId>jboss-fuse-parent</artifactId>
+            <version>${jboss.fuse.bom.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>   
+             
+    <!-- Core Camel support -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jms</artifactId>
+		</dependency>
+
+		<!-- for testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		 
+    <!-- Add support for HTTP -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jetty</artifactId>
+    </dependency>
+    
+        <!-- Add support for HTTP (outgoing)-->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-http</artifactId>
+    </dependency>
+
+    <!-- Add support for SLF4J -->
+     <dependency>
+  		<groupId>log4j</groupId> 
+  		<artifactId>log4j</artifactId> 
+  	</dependency>
+        
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+	</dependency>
+
+    <dependency>
+ 		<groupId>org.slf4j</groupId>
+ 		<artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+
+	<!-- The following IBM MQ dependencies are here in case you run outside an OSGI environment. -->
+	<!-- For example when you run example using 'mvn camel:run' the camel-maven-plugin will -->
+	<!-- construct a classpath from any Maven dependency with scope "compile".  -->
+	<dependency> 
+      <groupId>com.ibm.mq</groupId> 
+      <artifactId>com.ibm.mq.jmqi</artifactId>
+      <version>7.0.1.3</version>
+      <scope>compile</scope> 
+    </dependency> 
+	
+	<dependency> 
+      <groupId>com.ibm</groupId> 
+      <artifactId>com.ibm.mqjms</artifactId>
+      <version>7.0.1.3</version> 
+      <scope>compile</scope> 
+    </dependency> 
+    
+    <dependency> 
+      <groupId>com.ibm.mq.dhbcore</groupId> 
+      <artifactId>dhbcore</artifactId>
+      <version>7.0.1.3</version> 
+      <scope>compile</scope> 
+    </dependency> 
+
+
+  </dependencies>
+
+  <!--
+    repositories are actual descriptions/links to remote maven repositories that we need to access to obtain our dependencies
+  -->
+  <repositories>
+    <repository>
+      <id>fusesource-releases</id>
+      <name>FuseSource Release Repository</name>
+      <url>http://repo.fusesource.com/maven2</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+
+  <!--
+    pluginRepositories are actual descriptions/links to remote maven repositories that we need to access to obtain our maven plugins
+  -->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>fusesource-releases</id>
+      <name>Progress FUSE Open Source Community Release Repository</name>
+      <url>http://repo.fusesource.com/maven2</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+
+    <!-- makes sure versions are replaced in the features.xml file -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+
+      <!-- generates OSGi bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+				<DynamicImport-Package>*</DynamicImport-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+
+      <!-- Use JDK 1.6 language features in all projects -->
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+              <source>${java.version}</source>
+              <target>${java.version}</target>
+          </configuration>
+      </plugin>
+            
+      <!-- enable maven command 'mvn camel:run' -->
+      <plugin>
+          <groupId>org.apache.camel</groupId>
+          <artifactId>camel-maven-plugin</artifactId>
+          <configuration>
+              <!--  the spring context file must be separate from the OSGi bundle, so we provide one here -->
+              <fileApplicationContextUri>src/main/resources/META-INF/spring/camel-context.xml</fileApplicationContextUri>
+          </configuration>
+      </plugin>
+    
+      <!-- this will install/deploy the features file alongside the project's jar artifact -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-features-xml</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>target/classes/features.xml</file>
+                  <type>xml</type>
+                  <classifier>features</classifier>
+                </artifact>
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+ 		<!-- generate a unit testing report -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            
+             
+    </plugins>
+  </build>
+</project>
