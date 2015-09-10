@@ -23,18 +23,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.lab.examples</groupId>
+    <groupId>lab.examples</groupId>
     <artifactId>parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.lab.examples</groupId>
   <artifactId>camel-http-wmq</artifactId>
   <packaging>bundle</packaging>
   <version>1.1</version>
 
-  <name>Simple HTTP to Websphere MQ Router Example</name>
-  <url>http://fusesource.com</url>
+  <name>Lab Example :: Simple HTTP to Websphere MQ Router Example</name>
+  <url>http://www.mycompany.org</url>
 
   <properties>
       <jboss.fuse.bom.version>6.1.0.redhat-379</jboss.fuse.bom.version>

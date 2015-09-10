@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+       xmlns:ctx="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/osgi
+            http://www.springframework.org/schema/osgi/spring-osgi.xsd
+            http://www.springframework.org/schema/osgi-compendium
+            http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
+
+    <!-- properties placeholder -->
+    <osgix:cm-properties id="qbobroker.cfg.with.defaults" persistent-id="mycompanybroker">
+        <prop key="brokerName">DMN_PLEASE_OVERRIDE</prop>
+        <prop key="inboundDestinationType">topic</prop>
+        <prop key="inboundDestinationName">PLEASE_OVERRIDE_VIRTUAL_TOPIC_NAME</prop>
+        <prop key="sourceNode">PLEASE_OVERRIDE_VIRTUAL_TOPIC_NAME</prop>      
+        <prop key="amq_username">admin</prop>
+        <prop key="amq_password">admin</prop>
+    </osgix:cm-properties>
+
+    <!-- placeholder configurer -->
+    <ctx:property-placeholder properties-ref="mycompanybroker.cfg.with.defaults"/>
+
+</beans>
