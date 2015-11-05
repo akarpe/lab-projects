@@ -82,8 +82,8 @@ features:install  camel-jetty
 features:install  camel-jms
 features:install  camel-spring
 
-Deploying the sample into Servicemix
-------------------------------------
+Deploying the sample into the Karaf Container
+---------------------------------------------
 Once all the dependent runtime MQ bundles are installed into Servicemix, you can install 
 the example bundle into Servicemix using the following from the servicemix command console:
 
