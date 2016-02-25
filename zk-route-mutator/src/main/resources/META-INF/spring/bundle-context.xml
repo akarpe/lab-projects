@@ -28,8 +28,8 @@
 		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
     
     <!-- Camel Context configuration -->
-    <routeContext id="davitaRouteTemplateContext" xmlns="http://camel.apache.org/schema/spring">
-    	<route id="davitaRouteTemplate" autoStartup="false">
+    <routeContext id="RouteTemplateContext" xmlns="http://camel.apache.org/schema/spring">
+    	<route id="RouteTemplate" autoStartup="false">
     	   <from uri="direct:foo"/>
 		       <to uri="direct:bar"/>
     	</route>

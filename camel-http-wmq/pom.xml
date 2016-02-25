@@ -36,9 +36,9 @@
   <url>http://www.mycompany.org</url>
 
   <properties>
-      <jboss.fuse.bom.version>6.1.0.redhat-379</jboss.fuse.bom.version>
+      <jboss.fuse.bom.version>6.2.1.redhat-084</jboss.fuse.bom.version>
       <org.slf4j.version>1.5.6</org.slf4j.version>
-      <java.version>1.6</java.version>
+      <java.version>1.7</java.version>
       <maven-surefire-plugin.version>2.5</maven-surefire-plugin.version>
   </properties>
 
