@@ -51,7 +51,7 @@
     	</route>
     </camelContext>
 	
-	<!-- ActiveMQ Configuration --> 
+	<!-- Two ActiveMQ Broker Configurations --> 
 	<bean name="activemq1" class="org.apache.camel.component.jms.JmsComponent">
 		<property name="connectionFactory">
 			<bean class="org.apache.activemq.ActiveMQConnectionFactory">

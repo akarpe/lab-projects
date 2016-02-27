@@ -14,7 +14,7 @@
             http://www.springframework.org/schema/osgi-compendium
             http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
 
-    <!-- properties placeholder -->
+    <!-- OSGi properties placeholder -->
     <osgix:cm-properties id="zk-route-mutator.cfg.with.defaults" persistent-id="zk-route-mutator">
         <prop key="zookeeperURL">localhost:2181</prop>
         <prop key="broker1URL">discovery:(fabric:us-east)</prop>
