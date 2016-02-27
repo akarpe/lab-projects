@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         <parent>
+    		<groupId>lab.examples</groupId>
+    		<artifactId>parent</artifactId>
+    		<version>1.0-SNAPSHOT</version>
+  	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>zk-route-mutator-blueprint</artifactId>
+	<name>Lab Example :: Zookeeper Route Mutator (Blueprint)</name>
+	<packaging>bundle</packaging>
+
+	<dependencies>
+	    <dependency>
+	      <groupId>commons-collections</groupId>
+	      <artifactId>commons-collections</artifactId>
+	    </dependency>
+        <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-core</artifactId>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-blueprint</artifactId>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-quartz</artifactId>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-test</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-jms</artifactId>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.apache.camel</groupId>
+	      <artifactId>camel-zookeeper</artifactId>
+	    </dependency>
+	    <!--dependency>
+	      <groupId>org.apache.activemq</groupId>
+	      <artifactId>activemq-broker</artifactId>
+	    </dependency-->
+	    <dependency>
+	      <groupId>org.apache.activemq</groupId>
+	      <artifactId>activemq-client</artifactId>
+	    </dependency>
+	    <!--dependency>
+	        <groupId>org.apache.xbean</groupId>
+	        <artifactId>xbean-spring</artifactId>
+	        <version>${xbean-spring-version}</version>
+	        <exclusions>
+	            <exclusion>
+	                <groupId>org.springframework</groupId>
+	                <artifactId>spring</artifactId>
+	            </exclusion>
+	        </exclusions>
+	        <scope>test</scope>
+	    </dependency-->
+        <dependency>
+      		<groupId>org.slf4j</groupId>
+      		<artifactId>slf4j-api</artifactId>
+    	</dependency>
+    	<dependency>
+      		<groupId>org.slf4j</groupId>
+      		<artifactId>slf4j-log4j12</artifactId>
+    	</dependency>
+        <!-- Zookeeper Jars -->
+        <dependency>
+           <groupId>org.apache.zookeeper</groupId>
+           <artifactId>zookeeper</artifactId>
+        </dependency>
+	</dependencies>
+
+	<build>
+	   <plugins>
+              <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven-bundle-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>Zookeeper Route Mutator Demo - ${project.artifactId}</Bundle-Name>
+                        <Import-Package>
+                            *,
+                            org.apache.activemq, 
+                            org.apache.camel, 
+                            org.apache.camel.builder, 
+                            org.apache.camel.component.jms, 
+                            org.apache.camel.component.zookeeper, 
+                            org.apache.camel.model, 
+                            org.apache.commons.collections, 
+                            org.apache.commons.logging, 
+                            org.apache.zookeeper, 
+                            org.apache.zookeeper.data, 
+                            org.osgi.service.blueprint
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+              </plugin>
+        </plugins>
+    </build>
+	
+</project>

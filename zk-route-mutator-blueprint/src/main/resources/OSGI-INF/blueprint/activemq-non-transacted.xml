@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+    xsi:schemaLocation="
+    http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+    http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd
+    http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <!-- Poole`d non-Transacted ActiveMQ configuration -->
+
+    <!-- broker1 -->
+    <bean id="activemq1" class="org.apache.camel.component.jms.JmsComponent">
+        <argument ref="activemq1jmsConfig"/>
+    </bean>
+    
+    <bean id="activemq1jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="activemq1ConnectionFactory"/>
+    </bean>
+    
+    <bean id="activemq1ConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${broker1.URL}" />
+        <property name="copyMessageOnSend" value="false" />
+        <property name="userName" value="${broker1.username}" />
+        <property name="password" value="${broker1.password}" />
+        <property name="useAsyncSend" value="true" />
+    </bean>
+
+    <!-- broker2 -->
+    <bean id="activemq2" class="org.apache.camel.component.jms.JmsComponent">
+        <argument ref="activemq2jmsConfig"/>
+    </bean>
+    
+    <bean id="activemq2jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="activemq2ConnectionFactory"/>
+    </bean>
+
+    <bean id="activemq2ConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${broker2.URL}" />
+        <property name="copyMessageOnSend" value="false" />
+        <property name="userName" value="${broker2.username}" />
+        <property name="password" value="${broker2.password}" />
+        <property name="useAsyncSend" value="true" />
+    </bean>
+
+</blueprint>

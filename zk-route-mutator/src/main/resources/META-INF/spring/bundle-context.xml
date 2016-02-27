@@ -41,7 +41,7 @@
     </bean>
     
     <bean id="zookeeperConnector" class="lab.examples.zookeeper.demo.ZooKeeperConnector">
-    	<property name="hosts" value="${zookeeperHosts}"/>
+    	<property name="hosts" value="${zookeeperURL}"/>
     </bean>
     
     <camelContext id="demoCamelContext" xmlns="http://camel.apache.org/schema/spring">
@@ -55,7 +55,7 @@
 	<bean name="activemq1" class="org.apache.camel.component.jms.JmsComponent">
 		<property name="connectionFactory">
 			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
-				<property name="brokerURL" value="tcp://localhost:61616" />
+				<property name="brokerURL" value="${broker1URL}" />
 				<property name="userName" value="admin" />
 				<property name="password" value="admin" />
 				<property name="copyMessageOnSend" value="false"/>
@@ -67,7 +67,7 @@
 	<bean name="activemq2" class="org.apache.camel.component.jms.JmsComponent">
 		<property name="connectionFactory">
 			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
-				<property name="brokerURL" value="tcp://localhost:61617" />
+				<property name="brokerURL" value="${broker2URL}" />
 				<property name="userName" value="admin" />
 				<property name="password" value="admin" />
 				<property name="copyMessageOnSend" value="false"/>

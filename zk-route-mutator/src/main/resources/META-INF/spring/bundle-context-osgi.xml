@@ -16,7 +16,9 @@
 
     <!-- properties placeholder -->
     <osgix:cm-properties id="zk-route-mutator.cfg.with.defaults" persistent-id="zk-route-mutator">
-        <prop key="zookeeperHosts">localhost:2181</prop>
+        <prop key="zookeeperURL">localhost:2181</prop>
+        <prop key="broker1URL">discovery:(fabric:us-east)</prop>
+        <prop key="broker2URL">discovery:(fabric:us-west)</prop>
     </osgix:cm-properties>
 
     <!-- placeholder configurer -->

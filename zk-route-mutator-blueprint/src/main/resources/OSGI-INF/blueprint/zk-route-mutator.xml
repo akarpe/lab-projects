@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+    xsi:schemaLocation="
+    http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+    http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd
+    http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <!--routeContext id="RouteTemplateContext" xmlns="http://camel.apache.org/schema/spring">
+    	<route id="RouteTemplate" autoStartup="false">
+    	   <from uri="direct:foo"/>
+		       <to uri="direct:bar"/>
+    	</route>
+    </routeContext-->
+    
+    <bean id="routeMutationProcessor" class="lab.examples.zookeeper.demo.RouteMutationProcessor">
+    	<property name="camelContext" ref="demoCamelContext"/>
+    	<property name="zookeeperConnector" ref="zookeeperConnector"/>
+    </bean>
+    
+    <bean id="zookeeperConnector" class="lab.examples.zookeeper.demo.ZooKeeperConnector" 
+          init-method="init" destroy-method="destroy">
+    	<property name="hosts" value="${zookeeperURL}"/>
+    </bean>
+    
+    <camelContext id="demoCamelContext" xmlns="http://camel.apache.org/schema/blueprint">
+        <route id="zookeeper-route">
+    	   <from uri="zookeeper://localhost:2181/DEMO?repeat=true&amp;listChildren=true"/>
+		       <process ref="routeMutationProcessor"/>
+    	</route>
+    </camelContext>
+
+</blueprint>
